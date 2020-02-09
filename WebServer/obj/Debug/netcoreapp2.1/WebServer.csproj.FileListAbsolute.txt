@@ -1,0 +1,46 @@
+D:\pois1903\Visual Studio\WebServer1\WebServer\bin\Debug\netcoreapp2.1\WebServer.deps.json
+D:\pois1903\Visual Studio\WebServer1\WebServer\bin\Debug\netcoreapp2.1\WebServer.runtimeconfig.json
+D:\pois1903\Visual Studio\WebServer1\WebServer\bin\Debug\netcoreapp2.1\WebServer.runtimeconfig.dev.json
+D:\pois1903\Visual Studio\WebServer1\WebServer\bin\Debug\netcoreapp2.1\WebServer.dll
+D:\pois1903\Visual Studio\WebServer1\WebServer\bin\Debug\netcoreapp2.1\WebServer.pdb
+D:\pois1903\Visual Studio\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.csprojAssemblyReference.cache
+D:\pois1903\Visual Studio\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.csproj.CoreCompileInputs.cache
+D:\pois1903\Visual Studio\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.RazorAssemblyInfo.cache
+D:\pois1903\Visual Studio\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.RazorAssemblyInfo.cs
+D:\pois1903\Visual Studio\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.AssemblyInfoInputs.cache
+D:\pois1903\Visual Studio\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.AssemblyInfo.cs
+D:\pois1903\Visual Studio\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.RazorTargetAssemblyInfo.cache
+D:\pois1903\Visual Studio\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.dll
+D:\pois1903\Visual Studio\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.pdb
+\\Mac\Home\Downloads\WebServer1\WebServer\bin\Debug\netcoreapp2.1\appsettings.Development.json
+\\Mac\Home\Downloads\WebServer1\WebServer\bin\Debug\netcoreapp2.1\appsettings.json
+\\Mac\Home\Downloads\WebServer1\WebServer\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+\\Mac\Home\Downloads\WebServer1\WebServer\bin\Debug\netcoreapp2.1\WebServer.deps.json
+\\Mac\Home\Downloads\WebServer1\WebServer\bin\Debug\netcoreapp2.1\WebServer.runtimeconfig.json
+\\Mac\Home\Downloads\WebServer1\WebServer\bin\Debug\netcoreapp2.1\WebServer.runtimeconfig.dev.json
+\\Mac\Home\Downloads\WebServer1\WebServer\bin\Debug\netcoreapp2.1\WebServer.dll
+\\Mac\Home\Downloads\WebServer1\WebServer\bin\Debug\netcoreapp2.1\WebServer.pdb
+\\Mac\Home\Downloads\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.csprojAssemblyReference.cache
+\\Mac\Home\Downloads\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.RazorAssemblyInfo.cache
+\\Mac\Home\Downloads\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.RazorAssemblyInfo.cs
+\\Mac\Home\Downloads\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.AssemblyInfoInputs.cache
+\\Mac\Home\Downloads\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.AssemblyInfo.cs
+\\Mac\Home\Downloads\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.RazorTargetAssemblyInfo.cache
+\\Mac\Home\Downloads\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.dll
+\\Mac\Home\Downloads\WebServer1\WebServer\obj\Debug\netcoreapp2.1\WebServer.pdb
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\bin\Debug\netcoreapp2.1\appsettings.Development.json
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\bin\Debug\netcoreapp2.1\appsettings.json
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\bin\Debug\netcoreapp2.1\WebServer.deps.json
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\bin\Debug\netcoreapp2.1\WebServer.runtimeconfig.json
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\bin\Debug\netcoreapp2.1\WebServer.runtimeconfig.dev.json
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\bin\Debug\netcoreapp2.1\WebServer.dll
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\bin\Debug\netcoreapp2.1\WebServer.pdb
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\obj\Debug\netcoreapp2.1\WebServer.csprojAssemblyReference.cache
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\obj\Debug\netcoreapp2.1\WebServer.RazorAssemblyInfo.cache
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\obj\Debug\netcoreapp2.1\WebServer.RazorAssemblyInfo.cs
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\obj\Debug\netcoreapp2.1\WebServer.AssemblyInfoInputs.cache
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\obj\Debug\netcoreapp2.1\WebServer.AssemblyInfo.cs
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\obj\Debug\netcoreapp2.1\WebServer.RazorTargetAssemblyInfo.cache
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\obj\Debug\netcoreapp2.1\WebServer.dll
+\\Mac\Home\Desktop\Projects\C#\WebServer\WebServer\obj\Debug\netcoreapp2.1\WebServer.pdb
