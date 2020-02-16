@@ -9,40 +9,49 @@ namespace WebServer.Logic
 {
     public class UserService : EntityService<User>
     {
-        private const string insertCommand =
-            @"INSERT INTO [User] (Role, Email, FirstName, LastName, Password)
-              VALUES (@Role, @Email, @FirstName, @LastName, @Password)";
-
-        private const string updateCommand =
-            @"UPDATE [User] SET Role = @Role, Email = @Email, FirstName = @FirstName, 
-              LastName = @LastName, Password = @Password WHERE ID = @ID";
-
-        protected override SqlCommand GetInsertCommand(User user)
+        protected override string insertCommand
         {
-            SqlCommand command = new SqlCommand(insertCommand);
-            command.Parameters.AddWithValue("@Role", user.Role);
-            command.Parameters.AddWithValue("@Email", user.Email);
-            command.Parameters.AddWithValue("@FirstName", user.FirstName);
-            command.Parameters.AddWithValue("@LastName", user.LastName);
-            command.Parameters.AddWithValue("@Password", user.Password);
-
-            return command;
+            get
+            {
+                return @"INSERT INTO [User] (Role, Email, FirstName, LastName, Password)
+              VALUES (@Role, @Email, @FirstName, @LastName, @Password)";
+            }
         }
 
-        protected override bool Update(int id, User user)
+        protected override string updateCommand
         {
-            // Create the Command and Parameter objects.
-            SqlCommand command = new SqlCommand(updateCommand);
-            command.Parameters.AddWithValue("@ID", id);
-            command.Parameters.AddWithValue("@Role", user.Role);
-            command.Parameters.AddWithValue("@Email", user.Email);
-            command.Parameters.AddWithValue("@FirstName", user.FirstName);
-            command.Parameters.AddWithValue("@LastName", user.LastName);
-            command.Parameters.AddWithValue("@Password", user.Password);
+            get
+            {
+                return @"UPDATE [User] SET Role = @Role, Email = @Email, FirstName = @FirstName, 
+              LastName = @LastName, Password = @Password WHERE ID = @ID";
+            }
 
-            var result = command.ExecuteNonQuery();
+        }
 
-            return result > 0;
+        public bool Login(string email, string password)
+        {
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM [User] WHERE Email = @Email AND Password = @Password", connection);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@Password", password ?? "");
+
+                connection.Open();
+
+                var result = Convert.ToInt32(command.ExecuteScalar());
+
+                return result > 0;
+            }
+        }
+
+        protected override void AddParameters(SqlCommand command, User entity)
+        {
+            command.Parameters.AddWithValue("@Role", entity.Role);
+            command.Parameters.AddWithValue("@Email", entity.Email);
+            command.Parameters.AddWithValue("@FirstName", entity.FirstName);
+            command.Parameters.AddWithValue("@LastName", entity.LastName);
+            command.Parameters.AddWithValue("@Password", entity.Password);
         }
 
         protected override User LoadRow(IDataRecord row)

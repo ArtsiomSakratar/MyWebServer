@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using WebServer.Model;
 
 namespace WebServer.Logic
@@ -21,28 +22,31 @@ namespace WebServer.Logic
         private const string deleteCommand =
             @"DELETE FROM [{0}] WHERE ID = @ID";
 
+
+        protected abstract string updateCommand { get; }
+        protected abstract string insertCommand { get; }
+
+
         protected string FormatQuery(string query)
         {
             var type = typeof(T).Name;
             return string.Format(query, type);
         }
 
-        protected abstract T LoadRow(IDataRecord row);
 
-        protected abstract SqlCommand GetInsertCommand(T entity);
-        protected abstract bool Update(int id, T entity);
+        protected abstract T LoadRow(IDataRecord row);
+        protected abstract void AddParameters(SqlCommand command, T entity);
+
 
         public List<T> Get()
         {
             var list = new List<T>();
 
-            using (SqlConnection connection =
-                new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(
-                    FormatQuery(selectCommand), connection);
-
+                SqlCommand command = new SqlCommand(FormatQuery(selectCommand), connection);
                 connection.Open();
+
 
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -62,14 +66,13 @@ namespace WebServer.Logic
 
         public T Get(int id)
         {
-            using (SqlConnection connection =
-                new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(
-                    FormatQuery(getCommand), connection);
+                SqlCommand command = new SqlCommand(FormatQuery(getCommand), connection);
                 command.Parameters.AddWithValue("@ID", id);
 
                 connection.Open();
+
 
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -88,15 +91,12 @@ namespace WebServer.Logic
 
         public bool Delete(int id)
         {
-            using (SqlConnection connection =
-                new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(
-                    FormatQuery(deleteCommand), connection);
+                SqlCommand command = new SqlCommand(FormatQuery(deleteCommand), connection);
                 command.Parameters.AddWithValue("@ID", id);
 
                 connection.Open();
-
                 var result = command.ExecuteNonQuery();
 
                 return result > 0;
@@ -105,12 +105,29 @@ namespace WebServer.Logic
 
         public bool Create(T entity)
         {
-            using (SqlConnection connection =
-                new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 // Create the Command and Parameter objects.
-                SqlCommand command = GetInsertCommand(entity);
-                command.Connection = connection;
+                SqlCommand command = new SqlCommand(insertCommand, connection);
+
+                AddParameters(command, entity);
+
+                connection.Open();
+                var result = command.ExecuteNonQuery();
+
+                return result > 0;
+            }
+        }
+
+        public bool Update(int id, T entity)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Create the Command and Parameter objects.
+                SqlCommand command = new SqlCommand(updateCommand, connection);
+                command.Parameters.AddWithValue("@ID", id);
+
+                AddParameters(command, entity);
 
                 connection.Open();
                 var result = command.ExecuteNonQuery();
