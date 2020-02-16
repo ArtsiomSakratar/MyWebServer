@@ -33,8 +33,6 @@ namespace WebServer.Logic
             command.Parameters.AddWithValue("@Address", entity.Address);
         }
 
-        
-
         protected override Company LoadRow(IDataRecord row)
         {
             Company company = new Company();
