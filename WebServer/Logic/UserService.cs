@@ -25,7 +25,6 @@ namespace WebServer.Logic
                 return @"UPDATE [User] SET Role = @Role, Email = @Email, FirstName = @FirstName, 
               LastName = @LastName, Password = @Password WHERE ID = @ID";
             }
-
         }
 
         public bool Login(string email, string password)
@@ -33,14 +32,15 @@ namespace WebServer.Logic
             using (SqlConnection connection =
                 new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM [User] WHERE Email = @Email AND Password = @Password", connection);
+                SqlCommand command = new SqlCommand(
+                    @"SELECT COUNT(*) FROM [User] WHERE Email = @Email AND Password = @Password"
+                    , connection);
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Password", password ?? "");
 
                 connection.Open();
 
                 var result = Convert.ToInt32(command.ExecuteScalar());
-
                 return result > 0;
             }
         }

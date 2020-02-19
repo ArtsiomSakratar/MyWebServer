@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebServer.Model;
 using WebServer.Logic;
@@ -29,14 +30,13 @@ namespace WebServer.Controllers
         {
             var service = new CompanyService();
             bool result = service.Create(value);
-
         }
 
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Company value)
         {
             var service = new CompanyService();
-            bool result =  service.Update(id, value);
+            bool result = service.Update(id, value);
         }
 
         [HttpDelete("{id}")]

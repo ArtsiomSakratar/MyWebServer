@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebServer.Model;
 using WebServer.Logic;
@@ -15,13 +16,25 @@ namespace WebServer.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Product>> Get()
         {
-            return new ProductService().Get();
+            var products = new ProductService().Get();
+            foreach (var product in products)
+            {
+                product.Company = new CompanyService().Get(product.CompanyID);
+            }
+
+            return products;
         }
 
         [HttpGet("{id}")]
         public ActionResult<Product> Get(int id)
         {
-            return new ProductService().Get(id);
+            var product = new ProductService().Get(id);
+            if (product != null && product.CompanyID > 0)
+            {
+                product.Company = new CompanyService().Get(product.CompanyID);
+            }
+
+            return product;
         }
 
         [HttpPost]
@@ -29,7 +42,6 @@ namespace WebServer.Controllers
         {
             var service = new ProductService();
             bool result = service.Create(value);
-
         }
 
         [HttpPut("{id}")]

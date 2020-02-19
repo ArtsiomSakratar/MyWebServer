@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,12 +8,14 @@ namespace WebServer.Model
 {
     public class Order : Entity
     {
-        public string OrderID;
+        public string OrderID { get; set; }
 
-        public string CreateDate;
+        public DateTime CreateDate { get; set; }
 
-        public string ShipDate;
+        public DateTime ShipDate { get; set; }
 
-        public double Price;
+        public decimal Price { get; set; }
+
+        public int ProductID { get; set; }
     }
 }

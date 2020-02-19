@@ -13,8 +13,8 @@ namespace WebServer.Logic
         {
             get
             {
-                return @"INSERT INTO [Product] (Name, Price, CompanyId)
-              VALUES (@Name, @Price, @CompanyId)";
+                return @"INSERT INTO [Product] (Name, Price, CompanyID)
+              VALUES (@Name, @Price, @CompanyID)";
             }
         }
 
@@ -22,8 +22,8 @@ namespace WebServer.Logic
         {
             get
             {
-                return @"UPDATE [Product] SET Name = @Name, 
-              Price = @Price, CompanyId = @CompanyId WHERE ID = @ID";
+                return @"UPDATE [Product] SET Name = @Name, Price = @Price,
+              CompanyID = @CompanyID WHERE ID = @ID";
             }
         }
 
@@ -31,19 +31,19 @@ namespace WebServer.Logic
         {
             command.Parameters.AddWithValue("@Name", entity.Name);
             command.Parameters.AddWithValue("@Price", entity.Price);
-            command.Parameters.AddWithValue("@CompanyId", entity.CompanyId);
+            command.Parameters.AddWithValue("@CompanyID", entity.CompanyID);
         }
 
         protected override Product LoadRow(IDataRecord row)
         {
-            Product product = new Product();
+            Product Product = new Product();
 
-            product.ID = Convert.ToInt32(row["ID"]);
-            product.Name = Convert.ToString(row["Name"]);
-            product.Price = Convert.ToDouble(row["Price"]);
-            product.CompanyId = Convert.ToInt32(row["CompanyId"]);
+            Product.ID = Convert.ToInt32(row["ID"]);
+            Product.Name = Convert.ToString(row["Name"]);
+            Product.Price = Convert.ToDecimal(row["Price"]);
+            Product.CompanyID = Convert.ToInt32(row["CompanyID"]);
 
-            return product;
+            return Product;
         }
     }
 }

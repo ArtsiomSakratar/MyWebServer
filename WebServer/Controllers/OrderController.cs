@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebServer.Model;
 using WebServer.Logic;
@@ -25,11 +26,18 @@ namespace WebServer.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] Order value)
+        public ActionResult Post([FromBody] Order value)
         {
             var service = new OrderService();
-            bool result = service.Create(value);
+            // validate Product
+            var product = new ProductService().Get(value.ProductID);
+            if (product == null)
+            {
+                return NotFound("Product not found");
+            }
 
+            bool result = service.Create(value);
+            return Ok("Success");
         }
 
         [HttpPut("{id}")]

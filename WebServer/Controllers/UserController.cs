@@ -10,7 +10,7 @@ namespace WebServer.Controllers
 {
     [Route("api/users")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class UserController : ControllerBase
     {
         [HttpGet]
         public ActionResult<IEnumerable<User>> Get()
@@ -43,11 +43,12 @@ namespace WebServer.Controllers
         /// <response code="201">Returns the newly created item</response>
         /// <response code="400">If the item is null</response>            
         [HttpPost]
-        public void Post([FromBody] User value)
+        public ActionResult Post([FromBody] User value)
         {
             var service = new UserService();
             bool result = service.Create(value);
 
+            return Ok(result);
         }
 
         [HttpPut("{id}")]
@@ -69,12 +70,13 @@ namespace WebServer.Controllers
         }
 
         [HttpGet("login")]
-        public ActionResult Login(string email, string password)
+        public ActionResult Login(string email,
+            string password)
         {
             var service = new UserService();
             bool result = service.Login(email, password);
             if (!result)
-                return NotFound("Falled login");
+                return NotFound("Failed login");
             else
                 return Ok("Success login");
         }
