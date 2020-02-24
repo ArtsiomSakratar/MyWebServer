@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
@@ -20,6 +19,6 @@ namespace WebServer.Model
 
         public string Country { get; set; }
 
-        //        public Company Company { get; set; }
+        // public Company Company { get; set; }
     }
 }

@@ -33,7 +33,8 @@ namespace WebServer.Logic
                 new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(
-                    @"SELECT COUNT(*) FROM [User] WHERE Email = @Email AND Password = @Password"
+                    @"SELECT COUNT(*) FROM [User]
+        WHERE Email = @Email AND Password = @Password"
                     , connection);
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Password", password ?? "");
