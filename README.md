@@ -1,3 +1,3 @@
 # MyWebServer
 
-This is a simple API server for learning.
+This is a simple API Server for learning.
